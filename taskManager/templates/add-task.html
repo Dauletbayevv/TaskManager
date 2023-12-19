@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add Task</h1>
+        <form method="post">
+            <h5 class="mt-5">Name of the task:</h5>
+            <input type="text" name="task_name" id="task_name" class="form-control" placeholder="input name"><br>
+            <h5>Deadline:</h5>
+            <input type="date" name="deadline" id="deadline" class="form-control" value="2023-12-18"><br>
+            <input type="submit" class="btn btn-success" value="Save">
+        </form>
+    </div>
+</body>
+</html>

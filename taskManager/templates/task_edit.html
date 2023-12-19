@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Edit Task</title>
+</head>
+<body>
+    <div class="container mt-5">
+
+        <p>Task: {{ task.task_name }}</p>
+        <p>Deadline: {{ task.deadline.date() }}</p>
+
+        <form method="post" action="/tasks/{{ task.id }}/save">
+            <p>Task status:</p>
+            <select name="task_status" id="task_status" class="form-control">
+                <option value="0" {% if task.task_status == 0 or task.task_status == 2 %} selected {% endif %}>In progress</option>
+                <option value="1" {% if task.task_status == 1 %} selected {% endif %}>Done</option>
+            </select>
+            <p class="mt-4"></p>
+            <input type="submit" class="btn btn-success" value="Save">
+            <a href="/tasks/{{ task.id }}/del" class="btn btn-danger btn-sm">Delete</a>
+        </form>
+    </div>
+</body>
+</html>
